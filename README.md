@@ -45,6 +45,7 @@
 ## 後端相依套件
 
 1.[Laravel/Telescope](https://laravel.com/docs/11.x/telescope)
+2.[laravel-ide-helper]https://github.com/barryvdh/laravel-ide-helper
 
 ## Coding Style Check
 
