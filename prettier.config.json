@@ -3,7 +3,7 @@
     "tabWidth": 4,
     "useTabs": true,
     "semi": true,
-    "singleQuotev": true,
+    "singleQuote": true,
     "jsxSingleQuote": true,
     "trailingComma": "all",
     "bracketSpacing": true,

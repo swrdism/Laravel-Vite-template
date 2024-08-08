@@ -23,7 +23,7 @@ export default defineConfig({
         }),
         vue(),
         AutoImport({
-            imports: ["vue", "vue-router", "vue-i18n"],
+            imports: ["vue", "vue-router", "vue-i18n", "pinia"],
             eslintrc: {
                 enabled: true,
             },

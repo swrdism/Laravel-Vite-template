@@ -35,9 +35,10 @@
 
 1. [vue-router](https://router.vuejs.org/zh/)
 2. [vue-i18n](https://kazupon.github.io/vue-i18n/)
-3. [unplugin-auto-import](https://github.com/unplugin/unplugin-auto-import)
-4. [unplugin-vue-components](https://github.com/unplugin/unplugin-vue-components)
-5. [vite-plugin-svg-icons](https://github.com/vbenjs/vite-plugin-svg-icons/blob/main/README.zh_CN.md)
+3. [pinia](https://pinia.vuejs.org/)
+4. [unplugin-auto-import](https://github.com/unplugin/unplugin-auto-import)
+5. [unplugin-vue-components](https://github.com/unplugin/unplugin-vue-components)
+6. [vite-plugin-svg-icons](https://github.com/vbenjs/vite-plugin-svg-icons/blob/main/README.zh_CN.md)
 
 ## Coding Style Check
 
