@@ -42,11 +42,11 @@ export default defineConfig({
             dts: true,
         }),
         createSvgIconsPlugin({
-            iconDirs: [path.resolve(process.cwd(), "resources/assets/svg")],
+            iconDirs: [path.resolve(process.cwd(), "@/assets/svg")],
             symbolId: "icon-[dir]-[name]",
         }),
         Pages({
-            dirs: [{ dir: "resources/pages", baseRoute: "" }],
+            dirs: [{ dir: "@/pages", baseRoute: "" }],
         }),
         Layouts(),
     ],
