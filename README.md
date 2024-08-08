@@ -42,6 +42,10 @@
 7. [vueuse](https://vueuse.org/)
 8. [bootstrap](https://getbootstrap.com/)
 
+## 後端相依套件
+
+1.[Laravel/Telescope](https://laravel.com/docs/11.x/telescope)
+
 ## Coding Style Check
 
 # 前端
