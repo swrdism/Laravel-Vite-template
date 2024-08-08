@@ -1,4 +1,3 @@
-export default globalApi = axiosInstance => {
-	return {};
+export default globalApi = (axiosInstance) => {
+    return {};
 };
-

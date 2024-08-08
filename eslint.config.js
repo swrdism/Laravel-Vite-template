@@ -10,10 +10,7 @@ export default [
         plugins: {
             jsdoc: jsdoc,
         },
-        ignores: [
-            "vendor/",
-            "public/*",
-        ],
+        ignores: ["vendor/", "public/*"],
         rules: {
             "jsdoc/require-description": "error",
             "jsdoc/check-values": "error",

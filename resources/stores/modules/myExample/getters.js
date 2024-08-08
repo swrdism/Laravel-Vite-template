@@ -1,4 +1,4 @@
-import { STATE } from "./state";
+import { STATE } from "@/stores/modules/myExample/state";
 
 export const GETTERS = {
     doubleCount: computed(() => {

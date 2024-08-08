@@ -1,5 +1,5 @@
 <script setup>
-import { myExampleStore } from "../store/mudules/myExample";
+import { myExampleStore } from "@/stores/modules/myExample";
 const store = myExampleStore();
 </script>
 

@@ -42,11 +42,11 @@ export default defineConfig({
             dts: true,
         }),
         createSvgIconsPlugin({
-            iconDirs: [path.resolve(process.cwd(), "@/assets/svg")],
+            iconDirs: [path.resolve(process.cwd(), "resources/assets/svg")],
             symbolId: "icon-[dir]-[name]",
         }),
         Pages({
-            dirs: [{ dir: "@/pages", baseRoute: "" }],
+            dirs: [{ dir: "resources/pages", baseRoute: "" }],
         }),
         Layouts(),
     ],
@@ -54,6 +54,7 @@ export default defineConfig({
     resolve: {
         alias: {
             "@": path.resolve(__dirname, "resources"),
+            "~bootstrap": path.resolve(__dirname, "node_modules/bootstrap"),
             vue: "vue/dist/vue.esm-bundler.js",
         },
     },

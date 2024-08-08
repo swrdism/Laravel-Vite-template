@@ -40,6 +40,7 @@
 5. [unplugin-vue-components](https://github.com/unplugin/unplugin-vue-components)
 6. [vite-plugin-svg-icons](https://github.com/vbenjs/vite-plugin-svg-icons/blob/main/README.zh_CN.md)
 7. [vueuse](https://vueuse.org/)
+8. [bootstrap](https://getbootstrap.com/)
 
 ## Coding Style Check
 
