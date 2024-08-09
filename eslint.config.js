@@ -3,14 +3,10 @@ import pluginVue from "eslint-plugin-vue";
 import eslintConfigPrettier from "eslint-config-prettier";
 
 export default [
-    ...pluginVue.configs["flat/recommended"],
-    eslintConfigPrettier,
+    // ...pluginVue.configs["flat/recommended"],
+    // eslintConfigPrettier,
     {
-        files: ["**/*.js"],
-        plugins: {
-            jsdoc: jsdoc,
-        },
-        ignores: ["vendor/", "public/*"],
+        files: ["./resources/**/*.js", "./resources/**/*.vue"],
         rules: {
             "jsdoc/require-description": "error",
             "jsdoc/check-values": "error",

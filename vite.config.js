@@ -16,6 +16,9 @@ import Pages from "vite-plugin-pages";
 import Layouts from "vite-plugin-vue-layouts";
 
 export default defineConfig({
+    server: {
+        host: true,
+    },
     plugins: [
         laravel({
             input: ["resources/app.js"],

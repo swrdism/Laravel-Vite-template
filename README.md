@@ -12,23 +12,35 @@
 
 ## 本機開發建置程序
 
-1.  安裝 Node 和 PHP 相依套件
+1. 在 `/etc/hosts` (Windows 在 `C:\WINDOWS\system32\drivers\etc\hosts`) 裡加入下方設定：
     ```
-    yarn install
-    composer install
+    127.0.0.1       www.laravel-vite-vue.test
     ```
-2.  產生應用程式金鑰（僅在 local 使用）
+2. 啟動 docker
+
     ```
-    php artisan key:generate
+    docker-compose up -d
     ```
-3.  啟動應用
+
+3. 安裝 Node 和 PHP 相依套件
     ```
-    yarn vite
-    php artisan serve
+    docker exec -it laravel-vite-vue_workspace yarn
+    docker exec -it laravel-vite-vue_workspace composer install
     ```
-4.  建置應用
+4. 產生應用程式金鑰（僅在 local 使用）
     ```
-    yarn build
+    docker exec -it laravel-vite-vue_workspace php artisan key:generate
+    ```
+5. 前端
+    ```
+    //打包
+    docker exec -it laravel-vite-vue_workspace yarn build
+    //啟動開發環境
+    docker exec -it laravel-vite-vue_workspace yarn vite
+    ```
+6. 觀看結果
+    ```
+    http://www.laravel-vite-vue.test/
     ```
 
 ## 前端相依套件
@@ -44,8 +56,7 @@
 
 ## 後端相依套件
 
-1.[Laravel/Telescope](https://laravel.com/docs/11.x/telescope)
-2.[laravel-ide-helper]https://github.com/barryvdh/laravel-ide-helper
+1.[Laravel/Telescope](https://laravel.com/docs/11.x/telescope) 2.[laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper)
 
 ## Coding Style Check
 

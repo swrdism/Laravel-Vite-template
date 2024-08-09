@@ -1,0 +1,85 @@
+version: "3.8"
+
+networks:
+    dev_network:
+        driver: bridge
+
+services:
+    workspace:
+        container_name: laravel-vite-vue_workspace
+        build:
+            context: ./docker/workspace
+            args:
+                - PHP_VERSION=${PHP_VERSION}
+        tty: true
+        volumes:
+            - ./:/var/www
+            - ./docker/php-worker/supervisord.d:/etc/supervisord.d
+        ports:
+            - "2222:22"
+            - "8080:8080"
+            - "8001:8000"
+
+        depends_on:
+            - php-fpm
+        networks:
+            - dev_network
+
+    nginx:
+        container_name: laravel-vite-vue_nginx
+        build:
+            context: ./docker
+            dockerfile: ./nginx/Dockerfile
+            args:
+                - ENABLE_SSL=${ENABLE_SSL}
+        restart: always
+        ports:
+            - "80:80"
+            - "443:443"
+        depends_on:
+            - php-fpm
+        volumes:
+            - ./:/var/www
+            - ./storage/logs/nginx:/var/log/nginx
+            - ./docker/certs:/etc/nginx/certs
+            - ./docker/nginx/sites:/etc/nginx/sites-available
+        networks:
+            dev_network:
+                aliases:
+                    - www.laravel-vite-vue.test
+        healthcheck:
+            test: "curl -f http://localhost || exit 1"
+            interval: 30s
+            timeout: 10s
+            retries: 3
+
+    php-fpm:
+        container_name: laravel-vite-vue_php_fpm
+        build:
+            context: ./docker/php-fpm
+            args:
+                - PHP_VERSION=${PHP_VERSION}
+        volumes:
+            - ./:/var/www
+        ports:
+            - "9003:9003"
+
+        networks:
+            - dev_network
+
+    redis:
+        container_name: laravel-vite-vue_redis
+        build: ./docker/redis
+        volumes:
+            - ./docker/redis/data:/data
+        ports:
+            - "6379:6379"
+        depends_on:
+            - nginx
+        networks:
+            - dev_network
+        healthcheck:
+            test: "redis-cli ping"
+            interval: 30s
+            timeout: 10s
+            retries: 3
