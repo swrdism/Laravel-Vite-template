@@ -238,26 +238,16 @@ RUN find $NVM_DIR -type f -name node -exec ln -s {} /usr/local/bin/node \; && \
 COPY ./.npmrc /root/.npmrc
 COPY ./.npmrc /home/laradock/.npmrc
 
-###########################################################################
-# YARN:
-###########################################################################
-
-USER laradock
-
-RUN [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && \
-  curl -o- -L https://yarnpkg.com/install.sh | bash; \
-  echo "" >> ~/.bashrc && \
-  echo 'export PATH="$HOME/.yarn/bin:$PATH"' >> ~/.bashrc
-
-# Add YARN binaries to root's .bashrc
 USER root
 
-RUN echo "" >> ~/.bashrc && \
-  echo 'export YARN_DIR="/home/laradock/.yarn"' >> ~/.bashrc && \
-  echo 'export PATH="$YARN_DIR/bin:$PATH"' >> ~/.bashrc
+ARG INSTALL_PNPM=false
+ENV PNPM_HOME="/home/laradock/.local/share/pnpm"
+ENV PATH $PATH:/home/laradock/.local/share/pnpm
 
-# Add PATH for YARN
-ENV PATH $PATH:/home/laradock/.yarn/bin
+RUN echo "" >> ~/.bashrc && \
+    echo 'export PNPM_HOME="/home/laradock/.local/share/pnpm"' >> ~/.bashrc && \
+    echo 'export PATH="$PNPM_HOME:$PATH"' >> ~/.bashrc && \
+    npx pnpm add -g pnpm
 
 ###########################################################################
 # Image optimizers:
@@ -298,15 +288,6 @@ RUN python -m pip install --upgrade supervisor && \
   sed -i 's/\;\[include\]/\[include\]/g' /etc/supervisord.conf && \
   sed -i 's/\;files\s.*/files = supervisord.d\/*.conf/g' /etc/supervisord.conf
 
-###########################################################################
-# RDKAFKA:
-###########################################################################
-
-RUN apt-get install -yqq librdkafka-dev; \
-    pecl install rdkafka; \
-    echo "extension=rdkafka.so" >> /etc/php/${PHP_VERSION}/mods-available/rdkafka.ini; \
-    ln -s /etc/php/${PHP_VERSION}/mods-available/rdkafka.ini /etc/php/${PHP_VERSION}/cli/conf.d/20-rdkafka.ini; \
-    php -m | grep -q 'rdkafka';
 
 ###########################################################################
 # Check PHP version:
