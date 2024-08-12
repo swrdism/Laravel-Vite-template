@@ -12,16 +12,16 @@ importers:
         specifier: ^2.11.8
         version: 2.11.8
       '@vueuse/core':
-        specifier: ^10.11.0
+        specifier: ^10.11.1
         version: 10.11.1(vue@3.4.37)
       axios:
-        specifier: ^1.6.4
+        specifier: ^1.7.3
         version: 1.7.3
       bootstrap:
         specifier: ^5.3.3
         version: 5.3.3(@popperjs/core@2.11.8)
       laravel-vite-plugin:
-        specifier: ^1.0
+        specifier: ^1.0.5
         version: 1.0.5(vite@5.4.0(@types/node@22.2.0)(sass@1.77.8))
       pinia:
         specifier: ^2.2.1
@@ -33,13 +33,13 @@ importers:
         specifier: ^0.27.3
         version: 0.27.3(@babel/parser@7.25.3)(rollup@4.20.0)(vue@3.4.37)
       vue:
-        specifier: ^3.4.35
+        specifier: ^3.4.37
         version: 3.4.37
       vue-i18n:
         specifier: ^9.13.1
         version: 9.13.1(vue@3.4.37)
       vue-router:
-        specifier: ^4.4.2
+        specifier: ^4.4.3
         version: 4.4.3(vue@3.4.37)
     devDependencies:
       '@vitejs/plugin-vue':
@@ -49,7 +49,7 @@ importers:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.41)
       eslint:
-        specifier: ^9.8.0
+        specifier: ^9.9.0
         version: 9.9.0
       eslint-config-prettier:
         specifier: ^9.1.0
@@ -70,7 +70,7 @@ importers:
         specifier: ^1.77.8
         version: 1.77.8
       vite:
-        specifier: ^5.0
+        specifier: ^5.4.0
         version: 5.4.0(@types/node@22.2.0)(sass@1.77.8)
       vite-plugin-pages:
         specifier: ^0.32.3
