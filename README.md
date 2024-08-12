@@ -24,20 +24,20 @@
 
 3. 安裝 Node 和 PHP 相依套件
     ```
-    docker exec -it laravel-vite-vue_workspace yarn
-    docker exec -it laravel-vite-vue_workspace composer install
+    make install
     ```
 4. 產生應用程式金鑰（僅在 local 使用）
     ```
-    docker exec -it laravel-vite-vue_workspace php artisan key:generate
+    make key
     ```
-5. 前端
+5. 啟動服務
+
     ```
-    //打包
-    docker exec -it laravel-vite-vue_workspace yarn build
-    //啟動開發環境
-    docker exec -it laravel-vite-vue_workspace yarn vite
+    make dev //測試環境
+
+    make serve //build
     ```
+
 6. 觀看結果
     ```
     http://www.laravel-vite-vue.test/

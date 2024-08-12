@@ -8,9 +8,22 @@ test_coverage:
 
 style_check:
 	./vendor/bin/pint --test
-	yarn eslint
+	pnpm eslint
 
 style_fix:
 	./vendor/bin/pint
-	yarn fix-style
-	yarn eslint --fix
+	pnpm prettier . --write
+	pnpm eslint --fix
+
+install:
+	docker exec -it laravel-vite-vue_workspace yarn 
+	docker exec -it laravel-vite-vue_workspace composer install
+
+key:
+	docker exec -it laravel-vite-vue_workspace php artisan key:generate
+
+dev:
+	docker exec -it laravel-vite-vue_workspace yarn vite
+
+serve:
+	docker exec -it laravel-vite-vue_workspace yarn build
